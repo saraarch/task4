@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my file</title>
+</head>
+<body>
+    <h1>hello world</h1>
+    <script>
+
+     var request = new XMLHttpRequest();
+      request.open("GET","https://restcountries.com/v2/all",true)
+      request.send();
+      request.onload = function () {
+        //console.log(this.response);
+        var data = JSON.parse(this.response);
+       console.log(data);
+
+       for(i=0;i<data.length;i++){
+          var a=data[i].flags.png
+          console.log(data[i].name)
+          console.log(data[i].region)
+           console.log(data[i].subregion);
+           console.log(data[i].population)
+    
+        console.log('%c ',   'font-size:400px;background: url('+ a +') no-repeat;');
+
+       }
+      }
+       /* var obj1 ={ name: "Person 1", age:5 };
+var obj2 ={ age:5, name: "Person 2" };
+if(obj1.name==obj2.name){
+   if(obj1.age==obj2.age){
+     console.log("They are equal")
+   }
+ 
+else{
+   console.log("they are note equal")
+}
+        }
+
+      } */
+    </script>
+    
+</body>
+</html>
